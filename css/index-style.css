@@ -1,0 +1,92 @@
+/** General **/
+html, body {
+    background: linear-gradient(100deg, #eaecf7 0%, #dce0f3 100%);
+    font-family: 'Poppins', sans-serif;
+}
+
+/** Navbar **/
+.navbar {
+    background-color: #FFCC00;
+}
+
+.brand-logo {
+    width: auto;
+    height: auto;
+    max-width: 80%;
+}
+
+.navbar-nav {
+    padding-left: 80px;
+}
+
+.navbar-nav .nav-link {
+    color: #000000;
+    font-weight: 500;
+    transition: font-weight 0.1s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #333;
+    font-weight: bold;
+}
+
+.btn-add-order {
+    background-color: #DA291C;
+    border-color: #DA291C;
+    border-radius: 50px;
+    /* color: white; */
+    padding: 8px 20px;
+    font-weight: bold;
+    transition: background 0.1s ease;
+}
+
+.btn-add-order:hover {
+    background-color: #DA291C;
+    border-color: #DA291C;
+    transform: scale(1.05);
+    transition: transform 0.2s ease, background 0.1s ease;
+}
+
+.btn-add-order {
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-add-order:focus,
+.btn-add-order:active {
+    background-color: #DA291C !important;
+    border-color: #DA291C !important;
+}
+
+/* .btn-add-order .bi-box-arrow-left {
+    font-size: 20px;
+} */
+
+/** Main **/
+main {
+    padding-bottom: 50px;
+}
+
+/** Footer **/
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #FFCC00;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/** Responsibidad **/
+@media (max-width: 768px) {
+    .brand-logo {
+        width: 80px; /* Tamaño más pequeño para pantallas móviles */
+    }
+}
+
+@media (min-width: 769px) {
+    .brand-logo {
+        width: 120px; /* Tamaño más grande para pantallas grandes */
+    }
+}
