@@ -16,7 +16,7 @@ html, body {
 }
 
 .navbar-nav {
-    padding-left: 80px;
+    padding-left: 50px;
 }
 
 .navbar-nav .nav-link {
@@ -65,6 +65,10 @@ html, body {
 /** Main **/
 main {
     padding-bottom: 50px;
+}
+
+.h5 {
+    font-weight: bold;
 }
 
 /** Footer **/
