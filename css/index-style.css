@@ -58,10 +58,6 @@ html, body {
     border-color: #DA291C !important;
 }
 
-/* .btn-add-order .bi-box-arrow-left {
-    font-size: 20px;
-} */
-
 /** Main **/
 main {
     padding-bottom: 50px;
@@ -69,6 +65,18 @@ main {
 
 .h5 {
     font-weight: bold;
+}
+
+/* Modal para agregar nueva orden*/
+.modal-body form {
+    margin-bottom: 20px;
+}
+
+#menuContainer .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 /** Footer **/
