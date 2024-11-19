@@ -25,7 +25,7 @@ SELECT
     mn.descripcion AS producto_descripcion,
     mn.precio AS producto_precio
 FROM ordenes o
-LEFT JOIN clientes c ON o.id = c.id_orden
+LEFT JOIN clientes c ON o.id_cliente = c.id
 LEFT JOIN meseros m ON o.id_mesero = m.id
 LEFT JOIN productos_vendidos pv ON o.id = pv.id_orden
 LEFT JOIN menu mn ON pv.id_menu = mn.id
