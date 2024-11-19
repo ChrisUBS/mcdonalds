@@ -30,7 +30,7 @@ LEFT JOIN meseros m ON o.id_mesero = m.id
 LEFT JOIN productos_vendidos pv ON o.id = pv.id_orden
 LEFT JOIN menu mn ON pv.id_menu = mn.id
 WHERE o.estado = 1
-ORDER BY o.fecha_tiempo DESC;
+ORDER BY o.fecha_tiempo ASC;
 ";
 
 $result = $conn->query($sqlOrdenes);

@@ -130,6 +130,25 @@
         </div>
     </div>    
 
+    <!-- Modal para desactivar una orden -->
+    <div class="modal fade" id="confirmDeactivateModal" tabindex="-1" aria-labelledby="confirmDeactivateLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="border: 2px solid #FFC72C; border-radius: 10px;">
+                <div class="modal-header" style="background-color: #DA291C; color: #FFF;">
+                    <h5 class="modal-title" id="confirmDeactivateLabel">Confirmar Desactivación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFF;"></button>
+                </div>
+                <div class="modal-body" style="background-color: #FFF7E4;">
+                    <p>¿Estás seguro de que deseas desactivar esta orden? Esta acción no se puede deshacer.</p>
+                </div>
+                <div class="modal-footer" style="background-color: #FFF3CF;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeactivateButton" style="background-color: #DA291C; border-color: #DA291C; color: #FFF;">Desactivar</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
     <!-- Footer -->
 	<footer class="footer mt-auto py-3">
 		<div class="container text-center">
