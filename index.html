@@ -63,7 +63,7 @@
 
     <!-- Modal para agregar una nueva orden -->
     <div class="modal fade" id="addOrderModal" tabindex="-1" aria-labelledby="addOrderModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 500px; width: 90%; margin:auto;">
             <div class="modal-content" style="border: 3px solid #FFC72C; border-radius: 10px;">
                 <!-- Encabezado del Modal -->
                 <div class="modal-header" style="background-color: #DA291C; color: #FFF;">
@@ -150,7 +150,6 @@
                                     <label for="add-mesero" class="form-label">Seleccionar Mesero</label>
                                     <select class="form-select" id="add-mesero-select" name="add-mesero" required>
                                         <!-- Opciones dinámicas -->
-                                        <option value="Juan">Juan</option>
                                     </select>
                                 </div>
                             </form>
@@ -162,7 +161,7 @@
                                 <div id="menuContainer">
                                     <!-- Opciones dinámicas de productos -->
                                 </div>
-                                <div class="text-end mt-3">
+                                <div class="text-center mt-3">
                                     <strong>Subtotal: $<span id="subtotal">0.00</span></strong>
                                 </div>
                             </form>

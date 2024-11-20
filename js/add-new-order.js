@@ -105,7 +105,7 @@ function populateMenu(data) {
 
         productRow.innerHTML = `
             <!-- Columna para el producto -->
-            <div class="col-8">
+            <div class="col-7">
                 <div class="form-check">
                     <input class="form-check-input product-checkbox" type="checkbox" id="product-${product.id}" data-id="${product.id}" data-price="${parseFloat(product.precio)}">
                     <label class="form-check-label" for="product-${product.id}">
@@ -115,7 +115,7 @@ function populateMenu(data) {
             </div>
 
             <!-- Columna para cantidad y total -->
-            <div class="col-4">
+            <div class="col-3">
                 <div class="quantity-container d-flex align-items-center">
                     <input type="number" class="form-control quantity-input me-2"
                            data-price="${parseFloat(product.precio)}"
@@ -179,11 +179,11 @@ function updateSubtotal() {
     subtotalElement.textContent = subtotal.toFixed(2); // Actualizar el subtotal
 }
 
-// Función para guardar la orden
+// Función para guardar la orden con validaciones
 function saveOrder() {
     // Capturar datos del formulario
-    const mesa = document.getElementById('mesa').value;
-    const metodoPago = document.getElementById('metodo_pago').value;
+    const mesa = document.getElementById('mesa').value.trim();
+    const metodoPago = document.getElementById('metodo_pago').value.trim();
     const clienteNombre = document.getElementById('nombre_cliente').value.trim();
     const clienteApellido = document.getElementById('apellido_cliente').value.trim();
     const clienteCelular = document.getElementById('celular_cliente').value.trim();
@@ -205,9 +205,60 @@ function saveOrder() {
         }
     });
 
-    // Validar que al menos haya un producto seleccionado
+    // Validaciones
+    let isValid = true;
+
+    // Validar número de mesa
+    if (!mesa || mesa < 1 || mesa > 10 || isNaN(mesa)) {
+        alert('El número de mesa debe estar entre 1 y 10.');
+        isValid = false;
+        return;
+    }
+
+    // Validar método de pago
+    if (!['Efectivo', 'Tarjeta', 'Transferencia'].includes(metodoPago)) {
+        alert('Seleccione un método de pago válido.');
+        isValid = false;
+        return;
+    }
+
+    // Validar nombre del cliente
+    if (!clienteNombre || !/^[a-zA-Z\s]+$/.test(clienteNombre)) {
+        alert('El nombre del cliente solo debe contener letras y espacios (sin tildes ni caracteres especiales ni ñ).');
+        isValid = false;
+        return;
+    }
+
+    // Validar apellido del cliente
+    if (!clienteApellido || !/^[a-zA-Z\s]+$/.test(clienteApellido)) {
+        alert('El apellido del cliente solo debe contener letras y espacios (sin tildes ni caracteres especiales).');
+        isValid = false;
+        return;
+    }
+
+    // Validar celular del cliente
+    if (!/^\d{10}$/.test(clienteCelular)) {
+        alert('El número de celular debe contener exactamente 10 dígitos.');
+        isValid = false;
+        return;
+    }
+
+    // Validar mesero seleccionado
+    if (!meseroId || meseroId.trim() === '') {
+        alert('Seleccione un mesero.');
+        isValid = false;
+        return;
+    }
+
+    // Validar productos seleccionados
     if (selectedProducts.length === 0) {
         alert('Debe seleccionar al menos un producto.');
+        isValid = false;
+        return;
+    }
+
+    // Si no pasa alguna validación, detener el envío
+    if (!isValid) {
         return;
     }
 
@@ -236,7 +287,7 @@ function saveOrder() {
         .then(data => {
             console.log(data);
             if (data.success) {
-                // alert('Orden guardada exitosamente.');
+                alert('Orden guardada exitosamente.');
                 const modal = bootstrap.Modal.getInstance(document.getElementById('addOrderModal'));
                 modal.hide(); // Cerrar el modal
                 location.reload(); // Refrescar la página (opcional)
