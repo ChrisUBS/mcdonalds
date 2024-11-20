@@ -63,33 +63,39 @@
 
     <!-- Modal para agregar una nueva orden -->
     <div class="modal fade" id="addOrderModal" tabindex="-1" aria-labelledby="addOrderModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="border: 3px solid #FFC72C; border-radius: 10px;">
                 <!-- Encabezado del Modal -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addOrderModalLabel">Agregar Nueva Orden</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header" style="background-color: #DA291C; color: #FFF;">
+                    <h5 class="modal-title" id="addOrderModalLabel" style="font-weight: bold; font-size: 1.5rem;">➕
+                        Agregar Nueva Orden</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
 
                 <!-- Cuerpo del Modal -->
-                <div class="modal-body">
+                <div class="modal-body" style="background-color: #FFF7E4;">
                     <!-- Pestañas -->
                     <ul class="nav nav-tabs" id="addOrderTabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="order-tab" data-bs-toggle="tab" data-bs-target="#order"
-                                type="button" role="tab" aria-controls="order" aria-selected="true">Orden</button>
+                                type="button" role="tab" aria-controls="order" aria-selected="true"
+                                style="color: #DA291C; font-weight: bold;">Orden</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="order-client-tab" data-bs-toggle="tab" data-bs-target="#client"
-                                type="button" role="tab" aria-controls="client" aria-selected="false">Cliente</button>
+                                type="button" role="tab" aria-controls="client" aria-selected="false"
+                                style="color: #DA291C; font-weight: bold;">Cliente</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="order-mesero-tab" data-bs-toggle="tab" data-bs-target="#mesero"
-                                type="button" role="tab" aria-controls="mesero" aria-selected="false">Mesero</button>
+                            <button class="nav-link" id="order-mesero-tab" data-bs-toggle="tab"
+                                data-bs-target="#add-mesero" type="button" role="tab" aria-controls="add-mesero"
+                                aria-selected="false" style="color: #DA291C; font-weight: bold;">Mesero</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="menu-tab" data-bs-toggle="tab" data-bs-target="#menu"
-                                type="button" role="tab" aria-controls="menu" aria-selected="false">Menú</button>
+                                type="button" role="tab" aria-controls="menu" aria-selected="false"
+                                style="color: #DA291C; font-weight: bold;">Menú</button>
                         </li>
                     </ul>
 
@@ -100,8 +106,10 @@
                             <form id="orderForm">
                                 <div class="mb-3">
                                     <label for="mesa" class="form-label">Mesa</label>
+                                    <!-- <input type="number" class="form-control" id="mesa" name="mesa"
+                                        placeholder="Número de Mesa" required> -->
                                     <input type="number" class="form-control" id="mesa" name="mesa"
-                                        placeholder="Número de Mesa" required>
+                                        placeholder="Número de Mesa" min="1" max="10" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="metodo_pago" class="form-label">Método de Pago</label>
@@ -136,12 +144,13 @@
                         </div>
 
                         <!-- Tab Mesero -->
-                        <div class="tab-pane fade" id="mesero" role="tabpanel" aria-labelledby="order-mesero-tab">
+                        <div class="tab-pane fade" id="add-mesero" role="tabpanel" aria-labelledby="order-mesero-tab">
                             <form id="meseroForm">
                                 <div class="mb-3">
-                                    <label for="mesero" class="form-label">Seleccionar Mesero</label>
-                                    <select class="form-select" id="mesero" name="mesero" required>
+                                    <label for="add-mesero" class="form-label">Seleccionar Mesero</label>
+                                    <select class="form-select" id="add-mesero-select" name="add-mesero" required>
                                         <!-- Opciones dinámicas -->
+                                        <option value="Juan">Juan</option>
                                     </select>
                                 </div>
                             </form>
@@ -162,7 +171,9 @@
                 </div>
 
                 <!-- Pie del Modal -->
-                <div class="modal-footer">
+                <div class="modal-footer" style="background-color: #FFF3CF;">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        style="background-color: #DA291C; border-color: #DA291C; color: #FFF;">Cerrar</button>
                     <button type="button" class="btn btn-primary" id="navigationButton">Siguiente</button>
                 </div>
             </div>
@@ -197,14 +208,14 @@
                                 style="color: #DA291C; font-weight: bold;">Productos</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="details-client-tab" data-bs-toggle="tab" data-bs-target="#details-client"
-                                type="button" role="tab" aria-controls="client" aria-selected="false"
-                                style="color: #DA291C; font-weight: bold;">Cliente</button>
+                            <button class="nav-link" id="details-client-tab" data-bs-toggle="tab"
+                                data-bs-target="#details-client" type="button" role="tab" aria-controls="client"
+                                aria-selected="false" style="color: #DA291C; font-weight: bold;">Cliente</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="details-mesero-tab" data-bs-toggle="tab" data-bs-target="#details-mesero"
-                                type="button" role="tab" aria-controls="mesero" aria-selected="false"
-                                style="color: #DA291C; font-weight: bold;">Mesero</button>
+                            <button class="nav-link" id="details-mesero-tab" data-bs-toggle="tab"
+                                data-bs-target="#details-mesero" type="button" role="tab" aria-controls="mesero"
+                                aria-selected="false" style="color: #DA291C; font-weight: bold;">Mesero</button>
                         </li>
                     </ul>
 
@@ -228,14 +239,16 @@
                         </div>
 
                         <!-- Tab Cliente -->
-                        <div class="tab-pane fade" id="details-client" role="tabpanel" aria-labelledby="details-client-tab">
+                        <div class="tab-pane fade" id="details-client" role="tabpanel"
+                            aria-labelledby="details-client-tab">
                             <p><strong>👤 Nombre:</strong> <span id="modal-client-name"></span></p>
                             <p><strong>👥 Apellido:</strong> <span id="modal-client-lastname"></span></p>
                             <p><strong>📞 Celular:</strong> <span id="modal-client-phone"></span></p>
                         </div>
 
                         <!-- Tab Mesero -->
-                        <div class="tab-pane fade" id="details-mesero" role="tabpanel" aria-labelledby="details-mesero-tab">
+                        <div class="tab-pane fade" id="details-mesero" role="tabpanel"
+                            aria-labelledby="details-mesero-tab">
                             <p><strong>👤 Nombre:</strong> <span id="modal-mesero-name"></span></p>
                             <p><strong>👥 Apellido:</strong> <span id="modal-mesero-lastname"></span></p>
                             <p><strong>📞 Celular:</strong> <span id="modal-mesero-phone"></span></p>

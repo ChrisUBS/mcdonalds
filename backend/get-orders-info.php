@@ -1,6 +1,7 @@
 <?php
 // Conexión a la base de datos
 include 'connection.php';
+header('Content-Type: application/json');
 
 $response = [];
 

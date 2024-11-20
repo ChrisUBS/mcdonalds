@@ -79,6 +79,36 @@ main {
     margin-bottom: 10px;
 }
 
+/** Modal para agregar ordenes **/
+/* Ajustes de alineación */
+.quantity-container {
+    justify-content: space-between;
+    gap: 10px; /* Espaciado entre los elementos */
+}
+
+/* Ajuste del input de cantidad */
+.quantity-input {
+    text-align: center;
+    width: 60px; /* Tamaño fijo */
+}
+
+/* Alinear texto del total */
+.product-total {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
 /** Footer **/
 .footer {
     position: fixed;
