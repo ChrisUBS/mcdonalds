@@ -27,8 +27,9 @@ Para ejecutar este proyecto, es necesario contar con:
    - Coloca los archivos del proyecto en la carpeta `htdocs` dentro del directorio de instalación de XAMPP.
 
 3. **Configurar la base de datos**:
-   - Importa el archivo `.sql` en `phpMyAdmin`.
+   - Importa el archivo `db/mcdonalds.sql` en `phpMyAdmin`.
    - Esto creará las tablas necesarias para la aplicación: `ordenes`, `clientes`, `productos_vendidos`, `menu`, `meseros`.
+   - Importante modificar el archivo `backend/connection.php` para poner las credenciales de acceso a la base de datos.
 
 4. **Configurar el servidor**:
    - Asegúrate de que XAMPP esté corriendo con los servicios de **Apache** y **MySQL** activados.
